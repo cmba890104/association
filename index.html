@@ -5,483 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>中華伴唱設備暨著作利用人協會</title>
   <meta name="description" content="中華伴唱設備暨著作利用人協會官方網站，提供協會簡介、公告消息、章程與會員文件下載。" />
+  <meta name="theme-color" content="#1F3A5F" />
+  <meta property="og:title" content="中華伴唱設備暨著作利用人協會" />
+  <meta property="og:description" content="提供協會簡介、公告消息、章程與會員文件下載。" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <style>
     :root {
-      --bg: #f4f6f8;
-      --bg-2: #eef1f5;
+      --bg: #ffffff;
+      --bg-soft: #f5f7fa;
       --panel: #ffffff;
-      --ink: #1f2937;
-      --muted: #5f6b7a;
-      --line: #d7dee8;
-      --line-strong: #c6d0dc;
-      --brand: #8c1111;
-      --brand-deep: #5c0c0c;
-      --brand-soft: #fff4f3;
-      --brand-soft-2: #fdf0ef;
-      --shadow-sm: 0 10px 24px rgba(17, 24, 39, 0.05);
-      --shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+      --panel-soft: #f8fafc;
+      --ink: #333333;
+      --muted: #5b6470;
+      --line: #e5e7eb;
+      --brand: #1F3A5F;
+      --brand-deep: #162b46;
+      --brand-soft: #eaf0f7;
+      --brand-border: #cfdae8;
+      --shadow: 0 14px 32px rgba(16, 24, 40, 0.08);
       --radius: 18px;
-      --radius-lg: 28px;
       --max: 1160px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at top left, #ffffff 0, #ffffff 16%, transparent 16%),
-        linear-gradient(180deg, #f8f9fb 0%, #f3f5f8 40%, #eef2f6 100%);
+      background: var(--bg);
       line-height: 1.8;
     }
-
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-    .muted { color: var(--muted); }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(215, 222, 232, 0.96);
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(31,58,95,0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.10);
     }
-
     .nav {
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      min-height: 84px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      min-width: 0;
-    }
-
-    .brand-logo-wrap {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 10px 12px;
-      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.04);
-      flex: 0 0 auto;
-    }
-
-    .brand img { width: 178px; height: auto; }
-    .brand-text strong {
-      display: block;
-      font-size: 1.14rem;
-      letter-spacing: .03em;
-      margin-bottom: 2px;
-    }
-
-    .brand-text span {
-      display: block;
-      color: var(--muted);
-      font-size: .91rem;
-      line-height: 1.45;
-    }
-
+    .brand { display: flex; align-items: center; gap: 16px; min-width: 0; }
+    .brand img { width: 210px; height: auto; flex: 0 0 auto; background: #fff; padding: 8px 12px; border-radius: 12px; }
+    .brand-text strong { display: block; font-size: 1.14rem; letter-spacing: .02em; color: #fff; }
+    .brand-text span { display: block; color: rgba(255,255,255,0.82); font-size: .9rem; }
     nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      list-style: none; margin: 0; padding: 0;
+      display: flex; gap: 22px; flex-wrap: wrap; justify-content: flex-end;
+      font-size: 0.96rem;
     }
+    nav a { color: rgba(255,255,255,0.88); }
+    nav a:hover { color: #ffffff; }
 
-    nav a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 40px;
-      padding: 0 14px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: .95rem;
-      transition: .18s ease;
-    }
-
-    nav a:hover {
-      color: var(--brand-deep);
-      background: var(--brand-soft);
-    }
-
-    main { overflow: clip; }
-
-    .hero {
-      padding: 38px 0 24px;
-    }
-
+    .hero { padding: 44px 0 26px; background: linear-gradient(180deg, var(--bg-soft) 0%, #ffffff 100%); border-bottom: 1px solid var(--line); }
     .hero-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 30px;
-      align-items: center;
-      background: linear-gradient(135deg, #fff 0%, #fbfcfd 65%, #f6f8fb 100%);
-      border: 1px solid #e1e7ef;
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-      padding: 46px;
-      overflow: hidden;
+      display: grid; grid-template-columns: 1.18fr .82fr; gap: 28px; align-items: center;
+      background: linear-gradient(135deg, #fff 0%, #f9fbfd 100%);
+      border: 1px solid var(--brand-border); border-radius: 26px; box-shadow: var(--shadow); padding: 40px;
     }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      top: -80px;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(140,17,17,.08) 0%, rgba(140,17,17,.035) 45%, transparent 70%);
-      pointer-events: none;
-    }
-
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--brand-soft);
-      color: var(--brand-deep);
-      font-size: .88rem;
-      font-weight: 700;
-      border: 1px solid #f3d8d6;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px; border-radius: 999px; background: var(--brand-soft);
+      color: var(--brand); font-size: .88rem; font-weight: 700;
     }
-
-    h1 {
-      margin: 16px 0 14px;
-      font-size: clamp(2.05rem, 4vw, 3.15rem);
-      line-height: 1.18;
-      letter-spacing: .01em;
-    }
-
-    .hero p {
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 1.04rem;
-      max-width: 54ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
+    h1 { margin: 16px 0 14px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; color: var(--brand-deep); }
+    .hero p { margin: 0 0 24px; color: var(--muted); font-size: 1.02rem; max-width: 54ch; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 18px;
-      border-radius: 14px;
-      font-weight: 700;
-      border: 1px solid transparent;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 18px; border-radius: 14px; font-weight: 700; border: 1px solid transparent;
       transition: .18s ease;
     }
-
-    .btn-primary {
-      background: linear-gradient(180deg, #9c1717 0%, var(--brand) 100%);
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(140, 17, 17, 0.18);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      background: linear-gradient(180deg, #8d1212 0%, var(--brand-deep) 100%);
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--ink);
-      border-color: var(--line);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--line-strong);
-      background: #fafbfc;
-    }
-
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { transform: translateY(-1px); background: var(--brand-deep); }
+    .btn-secondary { background: #fff; color: var(--brand-deep); border-color: var(--brand-border); }
+    .btn-secondary:hover { border-color: var(--brand); }
     .hero-visual {
-      position: relative;
-      background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
-      border: 1px solid #e4e9f1;
-      border-radius: 26px;
-      padding: 34px 28px;
-      min-height: 284px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+      background: #fff; border: 1px solid var(--brand-border); border-radius: 22px; padding: 30px;
+      min-height: 230px; display: flex; align-items: center; justify-content: center;
     }
-
-    .hero-visual::before {
-      content: "中華伴唱設備暨著作利用人協會";
-      position: absolute;
-      left: 24px;
-      top: 18px;
-      font-size: .82rem;
-      letter-spacing: .08em;
-      color: #7a8796;
-    }
-
-    .hero-visual img { width: min(100%, 380px); }
+    .hero-visual img { width: min(100%, 440px); }
 
     section { padding: 30px 0; }
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: end;
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(215, 222, 232, .8);
-    }
-
-    .section-title {
-      margin: 0 0 8px;
-      font-size: 1.86rem;
-      line-height: 1.25;
-    }
-
-    .section-intro {
-      margin: 0;
-      color: var(--muted);
-      max-width: 62ch;
-    }
-
-    .section-tag {
-      flex: 0 0 auto;
-      color: var(--brand-deep);
-      background: var(--brand-soft-2);
-      border: 1px solid #f3d7d5;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: .84rem;
-      font-weight: 700;
-      align-self: start;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
+    .section-head { margin-bottom: 18px; }
+    .section-title { margin: 0 0 8px; font-size: 1.8rem; color: var(--brand-deep); }
+    .section-intro { margin: 0; color: var(--muted); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
+      box-shadow: 0 8px 22px rgba(17, 24, 39, 0.04);
     }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--brand) 0%, #dca8a8 100%);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.16rem;
-    }
-
+    .card h3 { margin: 0 0 10px; font-size: 1.16rem; color: var(--brand-deep); }
     .card p:last-child { margin-bottom: 0; }
 
-    .notice-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
+    .notice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .notice-card {
-      background: linear-gradient(180deg, #fff 0%, #fcfdff 100%);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
+      background: var(--panel-soft); border: 1px solid var(--line); border-radius: 22px; padding: 28px;
+      box-shadow: 0 8px 22px rgba(17, 24, 39, 0.04);
     }
-
-    .notice-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 6px;
-      background: linear-gradient(180deg, var(--brand) 0%, #ddabab 100%);
-    }
-
-    .notice-card h3 {
-      margin: 0 0 6px;
-      font-size: 1.2rem;
-    }
-
-    .notice-card .sub {
-      color: var(--muted);
-      font-size: .92rem;
-      margin-bottom: 16px;
-    }
-
-    .notice-date {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--brand-soft);
-      color: var(--brand-deep);
-      font-weight: 700;
-      font-size: .88rem;
-      margin-bottom: 14px;
-    }
-
-    .notice-card p {
-      margin: 0 0 12px;
-      min-height: 4.8em;
-    }
-
-    .notice-card a.inline-link { color: var(--brand-deep); font-weight: 700; }
+    .notice-card h3 { margin: 0 0 8px; font-size: 1.2rem; color: var(--brand-deep); }
+    .notice-card .sub { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+    .notice-date { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); font-weight: 700; font-size: .88rem; margin-bottom: 14px; }
+    .notice-card p { margin: 0 0 12px; }
+    .notice-card a.inline-link { color: var(--brand); font-weight: 700; }
     .notice-card.is-loading p { color: var(--muted); }
 
     .download-list { display: grid; gap: 14px; }
-
     .download-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 20px;
-      transition: .18s ease;
-      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.03);
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px;
     }
-
-    .download-item:hover {
-      transform: translateY(-1px);
-      border-color: var(--line-strong);
-      box-shadow: 0 12px 22px rgba(17, 24, 39, 0.05);
-    }
-
-    .download-item strong { display: block; margin-bottom: 2px; }
+    .download-item strong { display: block; margin-bottom: 2px; color: var(--brand-deep); }
     .download-item span { color: var(--muted); font-size: .95rem; }
-
     .download-item .download-btn {
-      white-space: nowrap;
-      padding: 11px 16px;
-      border-radius: 12px;
-      font-weight: 700;
-      border: 1px solid var(--brand);
-      color: var(--brand);
-      background: #fff;
+      white-space: nowrap; padding: 10px 16px; border-radius: 12px; font-weight: 700;
+      border: 1px solid var(--brand); color: #fff; background: var(--brand);
     }
+    .download-item .download-btn:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
 
-    .download-item .download-btn:hover {
-      background: var(--brand);
-      color: #fff;
-    }
+    .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .contact-item { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    .contact-item strong { display: block; margin-bottom: 6px; font-size: .95rem; color: var(--muted); }
+    .contact-item a, .contact-item span { font-weight: 700; word-break: break-word; color: var(--brand-deep); }
 
-    .contact-panel {
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 18px;
-    }
-
-    .contact-box {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .contact-item {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 22px;
-      min-height: 122px;
-      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.03);
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: .95rem;
-      color: var(--muted);
-    }
-
-    .contact-item a, .contact-item span {
-      font-weight: 700;
-      word-break: break-word;
-      font-size: 1.02rem;
-    }
-
-    .contact-aside {
-      background: linear-gradient(180deg, #fff 0%, #fbfcfd 100%);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 26px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .contact-aside h3 { margin: 0 0 10px; font-size: 1.1rem; }
-    .contact-aside p { margin: 0; color: var(--muted); }
-
-    footer {
-      padding: 36px 0 46px;
-      color: var(--muted);
-      font-size: .94rem;
-    }
-
-    .footer-card {
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-card strong { color: var(--ink); }
+    footer { padding: 30px 0 44px; background: var(--brand-deep); color: rgba(255,255,255,0.86); font-size: .93rem; margin-top: 18px; }
+    .footer-card { padding-top: 6px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-card strong { color: #fff; }
     .footer-right { text-align: right; }
+    footer a { color: #fff; }
 
     @media (max-width: 980px) {
-      .hero-card, .grid-2, .notice-grid, .contact-panel, .contact-box { grid-template-columns: 1fr; }
+      .hero-card, .grid-2, .notice-grid, .contact-box { grid-template-columns: 1fr; }
       .nav { align-items: flex-start; padding: 14px 0; flex-direction: column; }
-      nav ul { justify-content: flex-start; }
-      .section-head { align-items: start; flex-direction: column; }
+      nav ul { justify-content: flex-start; gap: 14px; }
       .footer-right { text-align: left; }
     }
-
     @media (max-width: 680px) {
-      .hero-card, .card, .notice-card, .contact-aside { padding: 24px; }
+      .hero-card, .card, .notice-card { padding: 24px; }
       .brand { align-items: flex-start; flex-direction: column; gap: 10px; }
-      .brand-logo-wrap { padding: 8px 10px; }
-      .brand img { width: 164px; }
+      .brand img { width: 180px; }
       .download-item { flex-direction: column; align-items: flex-start; }
       h1 { font-size: 2rem; }
-      .hero { padding-top: 24px; }
-      .hero-visual::before { position: static; display: block; margin-bottom: 14px; }
-      .hero-visual { min-height: auto; }
     }
   </style>
 </head>
@@ -489,12 +159,10 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="回到頁首">
-        <div class="brand-logo-wrap">
-          <img src="assets/01_horizontal_english_only.svg" alt="KUA logo" />
-        </div>
+        <img src="assets/01_horizontal_english_only.svg" alt="KUA logo" />
         <div class="brand-text">
           <strong>中華伴唱設備暨著作利用人協會</strong>
-          <span>推動伴唱產業合理利用著作權<br>促進產業和諧發展</span>
+          <span>推動卡拉OK產業合理利用著作權，促進產業和諧發展</span>
         </div>
       </a>
       <nav aria-label="主選單">
@@ -515,7 +183,7 @@
       <div class="container hero-card">
         <div>
           <div class="eyebrow">官方網站</div>
-          <h1>推動伴唱產業合理利用著作權，促進產業和諧發展</h1>
+          <h1>推動卡拉OK產業合理利用著作權<br>促進產業和諧發展</h1>
           <p>本會致力整合伴唱設備與音樂利用相關業者，反映產業實務需求，促進著作利用制度朝合理、透明、可行方向發展，並協助會員在法令架構下穩定經營。</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#downloads">下載章程與會員文件</a>
@@ -531,11 +199,8 @@
     <section id="updates">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">公告與消息</h2>
-            <p class="section-intro">首頁僅顯示最新一則公告與最新一則消息，方便訪客快速掌握協會近期資訊。</p>
-          </div>
-          <div class="section-tag">首頁重點</div>
+          <h2 class="section-title">公告與消息</h2>
+          <p class="section-intro">首頁各顯示最新一則公告與最新一則消息，內容可直接更新 data 資料夾中的 TXT 檔案。</p>
         </div>
         <div class="notice-grid">
           <article class="notice-card is-loading" id="announcement-card">
@@ -559,10 +224,8 @@
     <section id="about">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">協會簡介</h2>
-            <p class="section-intro">中華伴唱設備暨著作利用人協會為全國性社會團體，串連伴唱設備產業與著作利用相關業者，作為產業與制度之間的溝通平台。</p>
-          </div>
+          <h2 class="section-title">協會簡介</h2>
+          <p class="section-intro">中華伴唱設備暨著作利用人協會為全國性社會團體，串連伴唱設備產業與著作利用相關業者，作為產業與制度之間的溝通平台。</p>
         </div>
         <div class="grid-2">
           <article class="card">
@@ -580,10 +243,8 @@
     <section id="purpose">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">協會宗旨</h2>
-            <p class="section-intro">促進會員聯繫、維護共同權益、推動合理著作利用制度，並協助產業在合法合規的基礎上穩定發展。</p>
-          </div>
+          <h2 class="section-title">協會宗旨</h2>
+          <p class="section-intro">促進會員聯繫、維護共同權益、推動合理著作利用制度，並協助產業在合法合規的基礎上穩定發展。</p>
         </div>
         <div class="grid-2">
           <article class="card">
@@ -601,10 +262,8 @@
     <section id="policy">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">協會角色與政策立場</h2>
-            <p class="section-intro">本會支持著作權應受保護，也主張著作利用制度應兼顧產業實務、授權效率與市場公平。</p>
-          </div>
+          <h2 class="section-title">協會角色與政策立場</h2>
+          <p class="section-intro">本會支持著作權應受保護，也主張著作利用制度應兼顧產業實務、授權效率與市場公平。</p>
         </div>
         <div class="grid-2">
           <article class="card">
@@ -622,11 +281,8 @@
     <section id="downloads">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">下載專區</h2>
-            <p class="section-intro">提供章程與會員申請相關文件下載，可直接作為協會對外公開資料使用。</p>
-          </div>
-          <div class="section-tag">常用文件</div>
+          <h2 class="section-title">下載專區</h2>
+          <p class="section-intro">提供章程與會員申請相關文件下載。</p>
         </div>
         <div class="download-list">
           <div class="download-item">
@@ -657,37 +313,26 @@
     <section id="contact">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">聯絡我們</h2>
-            <p class="section-intro">如需入會、資料異動或其他協會相關事項，歡迎與本會聯繫。</p>
-          </div>
-          <div class="section-tag">對外聯絡</div>
+          <h2 class="section-title">聯絡我們</h2>
+          <p class="section-intro">如需入會、資料異動或其他協會相關事項，歡迎與本會聯繫。</p>
         </div>
-        <div class="contact-panel">
-          <div>
-            <div class="card" style="margin-bottom: 16px;">
-              <h3>中華伴唱設備暨著作利用人協會</h3>
-              <p style="margin: 0; color: var(--muted);">聯絡資訊如下，電話與電子郵件可直接點擊使用，適合作為正式對外聯絡窗口。</p>
-            </div>
-            <div class="contact-box">
-              <div class="contact-item">
-                <strong>電話</strong>
-                <a href="tel:0289132113">02-8913-2113</a>
-              </div>
-              <div class="contact-item">
-                <strong>傳真</strong>
-                <span>02-8913-2113</span>
-              </div>
-              <div class="contact-item">
-                <strong>Email</strong>
-                <a href="mailto:cmba890104@gmail.com">cmba890104@gmail.com</a>
-              </div>
-            </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3>中華伴唱設備暨著作利用人協會</h3>
+          <p style="margin: 0; color: var(--muted);">聯絡資訊如下，電話與電子郵件均可直接點擊使用。</p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-item">
+            <strong>電話</strong>
+            <a href="tel:0289132113">02-8913-2113</a>
           </div>
-          <aside class="contact-aside">
-            <h3>網站使用說明</h3>
-            <p>公告與消息區塊會自動讀取 <strong>data</strong> 資料夾中的 TXT 檔。未來若需更新首頁最新資訊，只要修改文字檔內容並重新上傳，即可維持網站頁面不變。</p>
-          </aside>
+          <div class="contact-item">
+            <strong>傳真</strong>
+            <span>02-8913-2113</span>
+          </div>
+          <div class="contact-item">
+            <strong>Email</strong>
+            <a href="mailto:cmba890104@gmail.com">cmba890104@gmail.com</a>
+          </div>
         </div>
       </div>
     </section>
@@ -697,7 +342,7 @@
     <div class="container footer-card">
       <div>
         <strong>© 2000 中華伴唱設備暨著作利用人協會</strong><br />
-        推動伴唱產業合理利用著作權，促進產業和諧發展
+        推動卡拉OK產業合理利用著作權，促進產業和諧發展
       </div>
       <div class="footer-right">
         電話：<a href="tel:0289132113">02-8913-2113</a><br />
@@ -709,7 +354,9 @@
 
   <script>
     function parseLatestLine(text) {
-      const lines = text.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+      const lines = text.split(/
+?
+/).map(line => line.trim()).filter(Boolean);
       if (!lines.length) return null;
       const [date, content, link] = lines[0].split('|');
       return {
