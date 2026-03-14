@@ -6,9 +6,14 @@
   <title>中華伴唱設備暨著作利用人協會</title>
   <meta name="description" content="中華伴唱設備暨著作利用人協會官方網站，提供協會簡介、公告消息、章程與會員文件下載。" />
   <meta name="theme-color" content="#1F3A5F" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.cmba100.org.tw/" />
   <meta property="og:title" content="中華伴唱設備暨著作利用人協會" />
   <meta property="og:description" content="提供協會簡介、公告消息、章程與會員文件下載。" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.cmba100.org.tw/" />
+  <meta property="og:site_name" content="中華伴唱設備暨著作利用人協會" />
+  <meta name="twitter:card" content="summary" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <style>
     :root {
@@ -353,9 +358,11 @@
 
   <script>
     function parseLatestLine(text) {
-      const lines = text.split(/
-?
-/).map(line => line.trim()).filter(Boolean);
+      const lines = text
+        .split(/?
+/)
+        .map(line => line.trim())
+        .filter(Boolean);
       if (!lines.length) return null;
       const [date, content, link] = lines[0].split('|');
       return {
@@ -365,27 +372,34 @@
       };
     }
 
-    async function loadNotice(path, prefix, fallbackTitle) {
+    async function loadNotice(path, prefix, fallbackText) {
       const card = document.getElementById(prefix + '-card');
       const dateEl = document.getElementById(prefix + '-date');
       const textEl = document.getElementById(prefix + '-text');
       const linkEl = document.getElementById(prefix + '-link');
+
       try {
         const response = await fetch(path, { cache: 'no-store' });
         if (!response.ok) throw new Error('load failed');
+
         const raw = await response.text();
         const latest = parseLatestLine(raw);
         if (!latest) throw new Error('empty');
+
         dateEl.textContent = latest.date || '未提供日期';
-        textEl.textContent = latest.content || fallbackTitle;
+        textEl.textContent = latest.content || fallbackText;
+
         if (latest.link) {
           linkEl.href = latest.link;
           linkEl.hidden = false;
+        } else {
+          linkEl.hidden = true;
         }
+
         card.classList.remove('is-loading');
       } catch (error) {
         dateEl.textContent = '尚無資料';
-        textEl.textContent = fallbackTitle;
+        textEl.textContent = fallbackText;
         linkEl.hidden = true;
         card.classList.remove('is-loading');
       }
