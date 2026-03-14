@@ -358,10 +358,7 @@
 
   <script>
     function parseLatestLine(text) {
-      const lines = text
-        .split(/?
-/)
-        .map(line => line.trim())
+      const lines = text.split(/\r?\n/).map(line => line.trim())
         .filter(Boolean);
       if (!lines.length) return null;
       const [date, content, link] = lines[0].split('|');
